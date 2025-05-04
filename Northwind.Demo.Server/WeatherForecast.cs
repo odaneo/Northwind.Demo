@@ -1,4 +1,4 @@
-namespace northwind_demo_server
+namespace Northwind.Demo.Server
 {
     public class WeatherForecast
     {
