@@ -6,14 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Demo.Server", "Northwind.Demo.Server\Northwind.Demo.Server.csproj", "{FEE6595C-6719-4A7D-A874-C7A453EC1B13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Demo.Server.Test", "Northwind.Demo.Server.Test\Northwind.Demo.Server.Test.csproj", "{769BD1BD-8F24-422D-9DDB-AFA9D3B169DD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FEE6595C-6719-4A7D-A874-C7A453EC1B13} = {FEE6595C-6719-4A7D-A874-C7A453EC1B13}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Demo.Common", "Northwind.Demo.Common\Northwind.Demo.Common.csproj", "{D6383E8F-1BBD-47EA-B51D-618F436AA1A1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FEE6595C-6719-4A7D-A874-C7A453EC1B13} = {FEE6595C-6719-4A7D-A874-C7A453EC1B13}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Demo.Repository", "Northwind.Demo.Repository\Northwind.Demo.Repository.csproj", "{170FCE10-8C6E-4D1E-AAB9-1A6859262296}"
 EndProject

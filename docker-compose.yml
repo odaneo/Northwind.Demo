@@ -15,6 +15,7 @@ services:
       - 55432:5432
     networks:
       - db
+    restart: always
 
   pgadmin:
     container_name: pgadmin
@@ -33,6 +34,7 @@ services:
       - 5050:5050
     networks:
       - db
+    restart: always
 
 networks:
   db:

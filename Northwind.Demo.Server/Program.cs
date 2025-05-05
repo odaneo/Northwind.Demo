@@ -7,6 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+string connectionString = builder.Configuration["DbContext:ConnectionString"] ??
+           throw new InvalidOperationException("Database connection string not found!");
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
