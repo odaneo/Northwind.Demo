@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Demo.Repository.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +14,13 @@ builder.Services.AddSwaggerGen();
 string connectionString = builder.Configuration["DbContext:ConnectionString"] ??
            throw new InvalidOperationException("Database connection string not found!");
 
+
+builder.Services.AddDbContext<AppDbContext>(option =>
+{
+    option.UseNpgsql(connectionString);
+    //.EnableSensitiveDataLogging() // 打印实际参数值
+    //.LogTo(Console.WriteLine);   // 打印到控制台
+});
 
 var app = builder.Build();
 
