@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Northwind.Demo.Repository.Database;
 
 
 
@@ -14,15 +15,21 @@ namespace Northwind.Demo.Server.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly AppDbContext _appDbContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, AppDbContext appDbContext)
         {
             _logger = logger;
+            _appDbContext = appDbContext;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            var list = _appDbContext.Customers.Where(c => c.City == "London").ToList();
+
+            Console.WriteLine(list.Count);
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
