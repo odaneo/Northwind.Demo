@@ -36,6 +36,16 @@ services:
       - db
     restart: always
 
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    ports:
+      - "16379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    restart: always
+
 networks:
   db:
     driver: bridge
@@ -49,3 +59,5 @@ volumes:
     driver: local
   postgresql_bin:
     driver: local
+  redis-data:
+    driver: local  
