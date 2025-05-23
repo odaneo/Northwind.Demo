@@ -1,5 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Northwind.Demo.Business.IServices;
+using Northwind.Demo.Business.Services;
+using Northwind.Demo.Common.Profiles;
 using Northwind.Demo.Repository.Database;
+using Northwind.Demo.Repository.IRepositories;
+using Northwind.Demo.Repository.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +26,12 @@ builder.Services.AddDbContext<AppDbContext>(option =>
     //.EnableSensitiveDataLogging() // 打印实际参数值
     //.LogTo(Console.WriteLine);   // 打印到控制台
 });
+
+builder.Services.AddScoped<ICustomersRepository, CustomersRepository>();
+builder.Services.AddScoped<ICustomersService, CustomersService>();
+
+
+builder.Services.AddAutoMapper(typeof(CustomerProfile).Assembly);
 
 var app = builder.Build();
 

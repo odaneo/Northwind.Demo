@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	<ProjectReference Include="..\Northwind.Demo.Common\Northwind.Demo.Common.csproj" />
+	<ProjectReference Include="..\Northwind.Demo.Repository\Northwind.Demo.Repository.csproj" />
+	<ProjectReference Include="..\Northwind.Demo.Entity\Northwind.Demo.Entity.csproj" />
+  </ItemGroup>
+	
 </Project>

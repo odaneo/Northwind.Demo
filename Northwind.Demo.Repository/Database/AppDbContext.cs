@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Northwind.Demo.Repository.Models;
+using Northwind.Demo.Entity.ModelConfigs;
+using Northwind.Demo.Entity.Models;
 
 namespace Northwind.Demo.Repository.Database;
 
@@ -40,7 +41,33 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CustomerConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CustomerCustomerDemoConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CustomerDemographicConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EmployeeConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EmployeeTerritoryConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(OrderConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(OrderDetailConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(RegionConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShipperConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SupplierConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(TerritoryConfig).Assembly);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(UsStateConfig).Assembly);
 
         base.OnModelCreating(modelBuilder);
     }
