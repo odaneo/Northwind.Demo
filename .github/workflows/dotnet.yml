@@ -66,6 +66,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
+            export TMUX_TMPDIR=/tmp
             tmux kill-session -t northwind || true  
-            tmux new-session -d -s northwind 'cd /home/ec2-user/myapp/publish && ASPNETCORE_URLS=http://127.0.0.1:5000 dotnet Northwind.Demo.Server.dll'
+            tmux new-session -d -s northwind "cd /home/${{ secrets.EC2_USER }}/myapp/publish && ASPNETCORE_URLS=http://127.0.0.1:5000 dotnet Northwind.Demo.Server.dll"
     
