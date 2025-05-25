@@ -42,7 +42,7 @@ jobs:
       with:
         # Which number to increment in the semantic versioning.
         # Set 'major', 'minor', 'patch' or 'get'.
-        method: patch
+        method: minor
         # If the new tag should be pushed, set "true".
         push: true # optional, default is false
 
