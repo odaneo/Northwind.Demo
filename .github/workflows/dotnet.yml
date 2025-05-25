@@ -57,7 +57,7 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         source: ./publish/*
         target: /home/${{ secrets.EC2_USER }}/myapp/
-        rm: /home/${{ secrets.EC2_USER }}/myapp/publish/
+        rm: true
 
     - name: SSH into EC2 and restart app
       uses: appleboy/ssh-action@v1.2.2
