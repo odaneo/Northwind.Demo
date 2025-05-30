@@ -6,24 +6,40 @@
         [TestMethod]
         public void TestMethod1()
         {
-            int[] nums = { 1, 1, 1, 2, 2, 3 };
-
-            int n = nums.Length;
-            if (n <= 2)
+            var input = new Dictionary<string, object>
             {
-                Console.WriteLine(n); // 原数组已满足条件
-                return;
-            }
-            int left = 2;//左边
-
-            for (int right = 2; right < n; right++)
+                { "a", 5 },
+                { "b", new Dictionary<string, object>
+                    {
+                        { "c", 10 },
+                        { "d", new Dictionary<string, object>
+                            {
+                                { "e", 15 }
+                            }
+                        }
+                    }
+                },
+                { "f", "hello" }
+            };
+        }
+        public static int SumNestedValues(Dictionary<string, object> input)
+        {
+            int sum = 0;
+            foreach (var key in input)
             {
-                if (nums[right] != nums[left - 2])
+                switch (key.Value)
                 {
-                    nums[left] = nums[right];
-                    left++;
+                    case int:
+                        sum += (int)key.Value;
+                        break;
+                    case Dictionary<string, object>:
+                        sum += SumNestedValues((Dictionary<string, object>)key.Value);
+                        break;
+                    default:
+                        break;
                 }
             }
+            return sum;
         }
     }
 }
