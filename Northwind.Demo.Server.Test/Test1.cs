@@ -3,43 +3,37 @@
     [TestClass]
     public sealed class Test1
     {
+        private List<List<int>> result = new List<List<int>>();
         [TestMethod]
         public void TestMethod1()
         {
-            var input = new Dictionary<string, object>
+            List<int> list = [1, 2, 3];
+
+            Test(list, []);
+            foreach (var perm in result)
             {
-                { "a", 5 },
-                { "b", new Dictionary<string, object>
-                    {
-                        { "c", 10 },
-                        { "d", new Dictionary<string, object>
-                            {
-                                { "e", 15 }
-                            }
-                        }
-                    }
-                },
-                { "f", "hello" }
-            };
-        }
-        public static int SumNestedValues(Dictionary<string, object> input)
-        {
-            int sum = 0;
-            foreach (var key in input)
-            {
-                switch (key.Value)
-                {
-                    case int:
-                        sum += (int)key.Value;
-                        break;
-                    case Dictionary<string, object>:
-                        sum += SumNestedValues((Dictionary<string, object>)key.Value);
-                        break;
-                    default:
-                        break;
-                }
+                Console.WriteLine(string.Join(",", perm));
             }
-            return sum;
+
+        }
+        public void Test(List<int> restList, List<int> currentList)
+        {
+            var n = restList.Count;
+            if (n == 0)
+            {
+                result.Add(currentList);
+                return;
+            }
+            for (var i = 0; i < restList.Count; i++)
+            {
+                var nextRest = new List<int>(restList);
+                nextRest.RemoveAt(i);
+
+                var nextCurrent = new List<int>(currentList);
+                nextCurrent.Add(restList[i]);
+
+                Test(nextRest, nextCurrent);
+            }
         }
     }
 }
