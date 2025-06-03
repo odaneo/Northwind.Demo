@@ -9,30 +9,47 @@
         {
             List<int> list = [1, 2, 3];
 
-            Test(list, []);
+            Test(list, new List<int>(), true);
+            Test(list, new List<int>(), false);
+
             foreach (var perm in result)
             {
                 Console.WriteLine(string.Join(",", perm));
             }
 
         }
-        public void Test(List<int> restList, List<int> currentList)
+        public string Test222(string restString)
         {
-            var n = restList.Count;
-            if (n == 0)
+            if (restString.Length <= 1)
             {
-                result.Add(currentList);
+                return restString;
+            }
+            return restString.Last() + Test222(restString.Substring(0, restString.Length - 1));
+        }
+        public void Test(List<int> list, List<int> currentList, bool isGo)
+        {
+            if (list.Count == 0)
+            {
+                result.Add(new List<int>(currentList));
                 return;
             }
-            for (var i = 0; i < restList.Count; i++)
+
+            int head = list[0];
+
+            var nextRest = new List<int>(list);
+            nextRest.RemoveAt(0);
+
+            if (isGo)
             {
-                var nextRest = new List<int>(restList);
-                nextRest.RemoveAt(i);
-
-                var nextCurrent = new List<int>(currentList);
-                nextCurrent.Add(restList[i]);
-
-                Test(nextRest, nextCurrent);
+                var nextCurr = new List<int>(currentList);
+                nextCurr.Add(head);
+                Test(nextRest, nextCurr, true);
+                Test(nextRest, nextCurr, false);
+            }
+            else
+            {
+                Test(nextRest, currentList, true);
+                Test(nextRest, currentList, false);
             }
         }
     }
