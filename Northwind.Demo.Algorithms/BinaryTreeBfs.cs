@@ -9,22 +9,19 @@ public class BinaryTreeBfs
     }
     public List<int> LevelOrder(TreeNode root)
     {
-        var list = new List<int>();
-        if (root == null) return list; // 防止空树
+        List<int> list = [];
+        if (root == null) return list;
 
-        Queue<TreeNode> queue = new Queue<TreeNode>();
+        Queue<TreeNode> queue = [];
         queue.Enqueue(root);
 
         while (queue.Count > 0)
         {
-            TreeNode node = queue.Dequeue();
-            list.Add(node.val); // 假设 val 是 int 类型，不用 .Value
+            var a = queue.Dequeue();
+            list.Add(a.val);
 
-            if (node.left != null)
-                queue.Enqueue(node.left);
-
-            if (node.right != null)
-                queue.Enqueue(node.right);
+            if (a.left != null) queue.Enqueue(a.left);
+            if (a.right != null) queue.Enqueue(a.right);
         }
 
         return list;
