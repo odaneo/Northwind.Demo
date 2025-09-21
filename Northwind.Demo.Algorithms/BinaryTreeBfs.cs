@@ -1,4 +1,4 @@
-﻿using Northwind.Demo.Algorithms;
+﻿namespace Northwind.Demo.Algorithms;
 
 [TestClass]
 public class BinaryTreeBfs
