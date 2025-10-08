@@ -20,6 +20,7 @@ public class TwoSumHashTable
             {
                 return [dic[target - nums[i]], i];
             }
+            dic.Add(nums[i], i);
         }
         return [];
     };
