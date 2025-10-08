@@ -7,7 +7,7 @@ public class ArrayBinaryTree
     public List<int> res = [];
 
     [TestMethod]
-    public void TestMethod1()
+    public void TestMethod()
     {
     }
     public int Size() { return tree.Count; }

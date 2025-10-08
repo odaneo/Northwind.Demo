@@ -3,6 +3,10 @@ namespace Northwind.Demo.Algorithms;
 [TestClass]
 public class BinarySearch
 {
+    [TestMethod]
+    public void TestMethod()
+    {
+    }
     public int Search(List<int> nums, int target)
     {
         var left = 0;

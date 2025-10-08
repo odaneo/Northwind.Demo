@@ -4,7 +4,7 @@ namespace Northwind.Demo.Algorithms;
 public class TwoSumHashTable
 {
     [TestMethod]
-    public void TestMethod1()
+    public void TestMethod()
     {
         int[] list = [2, 7, 11, 15];
         var target = 9;

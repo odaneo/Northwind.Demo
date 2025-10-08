@@ -5,7 +5,7 @@ public class BinaryTreeDfs
 {
     private List<int> list = [];
     [TestMethod]
-    public void TestMethod1()
+    public void TestMethod()
     {
         var r1 = new TreeNode(1);
         var r2 = new TreeNode(2);

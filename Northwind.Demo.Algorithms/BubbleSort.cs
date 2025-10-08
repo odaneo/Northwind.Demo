@@ -4,7 +4,7 @@ namespace Northwind.Demo.Algorithms;
 public class BubbleSort
 {
     [TestMethod]
-    public void TestMethod1()
+    public void TestMethod()
     {
         List<int> list = new() { 3, 4, 8, 6, 1, 1, 8 };
 
