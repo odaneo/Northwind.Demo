@@ -8,15 +8,22 @@ public class BubbleSort
     {
         List<int> list = new() { 3, 4, 8, 6, 1, 1, 8 };
 
-        for (var i = 0; i < list.Count; i++)
+        var l = Sort(list);
+
+        Console.WriteLine(string.Join(",", l));
+    }
+    Func<List<int>, List<int>> Sort = (nums) =>
+    {
+        for (var i = 0; i < nums.Count - 1; i++)
         {
-            for (var j = 0; j < list.Count - i - 1; j++)
+            for (var p = 1; p < nums.Count - i; p++)
             {
-                if (list[j] > list[j + 1])
+                if (nums[p] < nums[p - 1])
                 {
-                    (list[j], list[j + 1]) = (list[j + 1], list[j]);
+                    (nums[p], nums[p - 1]) = (nums[p - 1], nums[p]);
                 }
             }
         }
-    }
+        return nums;
+    };
 }
